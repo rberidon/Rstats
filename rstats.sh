@@ -32,7 +32,7 @@ echo "\"uptime_full\"=\"`uptime`\"" >> $LOGFILE
 
 
 #IP Address
-echo "\"external_ip\"=\"`curl icanhazip.com`\"" >> $LOGFILE
+echo "\"external_ip\"=\"`curl -sf icanhazip.com`\"" >> $LOGFILE
 echo "\"wireless_ip\"=\"`/sbin/ifconfig | grep -A 4 en1 | grep inet\ | awk '{print $2}'`\"" >> $LOGFILE
 echo "\"wired_ip\"=\"`/sbin/ifconfig | grep -A 4 en0 | grep inet\ | awk '{print $2}'`\"" >> $LOGFILE
 
