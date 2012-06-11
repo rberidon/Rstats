@@ -1,5 +1,5 @@
 rm Raptor.log 2>>/dev/null
-time ./rstat.sh
+time ./rstats.sh
 echo
 echo
 cat Raptor.log
