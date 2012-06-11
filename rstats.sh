@@ -1,3 +1,4 @@
+#!/bin/sh
 #Start
 echo "##start#" >> `hostname -s`.log
 
