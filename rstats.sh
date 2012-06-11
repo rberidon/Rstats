@@ -1,26 +1,33 @@
 #!/bin/sh
+
+
+
+#Variables
+LOGFILE=/Users/rayne/.rstats/`hostname -s`.log
+
+
 #Start
-echo "##start#" >> `hostname -s`.log
+echo "##start#" >> $LOGFILE
 
 #Date
-echo "\"date\"=\"`date`\"" >> `hostname -s`.log
+echo "\"date\"=\"`date`\"" >> $LOGFILE
 
 #Batteries
-/usr/sbin/ioreg -l | grep -e "CycleCount" -e "Capacity" | grep -v "Legacy" | awk '{$1=$2=""; print $0}' | sed 's/^[ \t]*//' >> `hostname -s`.log
+/usr/sbin/ioreg -l | grep -e "CycleCount" -e "Capacity" | grep -v "Legacy" | awk '{$1=$2=""; print $0}' | sed 's/^[ \t]*//' >> $LOGFILE
 
 
 ##Averages-Deprecated
-#echo "\"load1\"=\"`uptime | awk '{print $10}'`\"" >> `hostname -s`.log
-#echo "\"load5\"=\"`uptime | awk '{print $11}'`\"" >> `hostname -s`.log
-#echo "\"load15\"=\"`uptime | awk '{print $12}'`\"" >> `hostname -s`.log
-echo "\"load\"=\"`uptime | grep -o "average.*" | awk '{print $2,$3,$4}'`\"" >> `hostname -s`.log
+#echo "\"load1\"=\"`uptime | awk '{print $10}'`\"" >> $LOGFILE
+#echo "\"load5\"=\"`uptime | awk '{print $11}'`\"" >> $LOGFILE
+#echo "\"load15\"=\"`uptime | awk '{print $12}'`\"" >> $LOGFILE
+echo "\"load\"=\"`uptime | grep -o "average.*" | awk '{print $2,$3,$4}'`\"" >> $LOGFILE
 
 #Uptime
-echo "\"uptime\"=\"`uptime | grep -o "up.*:[0-9][0-9]"`\"" >> `hostname -s`.log
-echo "\"uptime_full\"=\"`uptime`\"" >> `hostname -s`.log
+echo "\"uptime\"=\"`uptime | grep -o "up.*:[0-9][0-9]"`\"" >> $LOGFILE
+echo "\"uptime_full\"=\"`uptime`\"" >> $LOGFILE
 
 #end
-echo "##end#" >> `hostname -s`.log
+echo "##end#" >> $LOGFILE
 
 #newline
-echo >> `hostname -s`.log
+echo >> $LOGFILE
