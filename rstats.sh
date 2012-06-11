@@ -37,6 +37,10 @@ echo "\"wireless_ip\"=\"`/sbin/ifconfig | grep -A 4 en1 | grep inet\ | awk '{pri
 echo "\"wired_ip\"=\"`/sbin/ifconfig | grep -A 4 en0 | grep inet\ | awk '{print $2}'`\"" >> $LOGFILE
 
 
+#Highest-load program
+program1=`ps axr -o %cpu -o command  | sed -n 2p | grep "Applications" | sed  -e 's/\.app.*//g' -e "s/\/Applications\///g"`
+echo "\"highprogram_name\"=\"`echo $program1 | awk '{$1="";print $0}' | sed 's/^[ \t]*//'`\"" >> $LOGFILE
+echo "\"highprogram_cpu\"=\"`echo $program1 | awk '{print $1}'`\"" >> $LOGFILE
 
 #end
 echo "##end#" >> $LOGFILE
