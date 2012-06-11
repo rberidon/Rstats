@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Variables
-LOGFILE=/Users/rayne/.rstats/`hostname -s`.log
+LOGFILE=/Users/rayne/.rstats/`hostname -s`-`date "+%Y%m%d"`.log
 
 
 
