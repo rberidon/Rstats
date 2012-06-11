@@ -10,7 +10,9 @@ echo "##start#" >> $LOGFILE
 
 
 #Date
-echo "\"date\"=\"`date`\"" >> $LOGFILE
+#Old style datestring# echo "\"date\"=\"`date`\"" >> $LOGFILE
+echo "\"date\"=\"`date "+%m/%d/%Y"`\"" >> $LOGFILE
+echo "\"time\"=\"`date | awk '{print $4}'`\"" >> $LOGFILE
 
 
 #Batteries
