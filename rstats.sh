@@ -5,6 +5,8 @@
 LOGFILE=/Users/rayne/.rstats/`cat /Users/rayne/.rstats/hostname`-`date "+%Y%m%d"`.log
 
 
+#echo "\"param\"=\"value\"" >> $LOGFILE
+
 
 #Start
 echo "##start#" >> $LOGFILE
