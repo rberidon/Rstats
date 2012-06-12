@@ -45,6 +45,14 @@ program1=`ps axr -o %cpu -o command  | sed -n 2p | grep "Applications" | sed  -e
 echo "\"highprogram_name\"=\"`echo $program1 | awk '{$1="";print $0}' | sed 's/^[ \t]*//'`\"" >> $LOGFILE
 echo "\"highprogram_cpu\"=\"`echo $program1 | awk '{print $1}'`\"" >> $LOGFILE
 
+
+#Disk usage
+echo "\"disk1f\"=\"`df -h | grep \/$ | awk '{print $4}'`\"" >> $LOGFILE
+echo "\"disk1t\"=\"`df -h | grep \/$ | awk '{print $2}'`\"" >> $LOGFILE
+echo "\"disk2f\"=\"`df -h | grep \/data$ | awk '{print $4}'`\"" >> $LOGFILE
+echo "\"disk2t\"=\"`df -h | grep \/data$ | awk '{print $2}'`\"" >> $LOGFILE
+
+
 #end
 echo "##end#" >> $LOGFILE
 
