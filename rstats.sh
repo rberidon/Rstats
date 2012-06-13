@@ -1,8 +1,7 @@
 #!/bin/sh
 
 #Variables
-#LOGFILE=/Users/rayne/.rstats/`hostname -s`-`date "+%Y%m%d"`.log
-LOGFILE=/Users/rayne/.rstats/`cat /Users/rayne/.rstats/hostname`-`date "+%Y%m%d"`.log
+LOGFILE=/Users/rayne/.rstats/logs/`cat /Users/rayne/.rstats/hostname`/`date "+%Y%m%d"`.log
 
 
 #echo "\"param\"=\"value\"" >> $LOGFILE
