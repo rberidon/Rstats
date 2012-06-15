@@ -18,7 +18,7 @@ echo "\"time\"=\"`date | awk '{print $4}'`\"" >> $LOGFILE
 
 
 #Batteries
-/usr/sbin/ioreg -l | grep -e "CycleCount" -e "Capacity" | grep -v "Legacy" | awk '{$1=$2=""; print $0}' | sed 's/^[ \t]*//' | sed 's/\ =\ /=/g' >> $LOGFILE
+/usr/sbin/ioreg -l 2>>/dev/null | grep -e "CycleCount" -e "Capacity" | grep -v "Legacy" | awk '{$1=$2=""; print $0}' | sed 's/^[ \t]*//' | sed 's/\ =\ /=/g' >> $LOGFILE
 
 
 ##Averages-Deprecated
