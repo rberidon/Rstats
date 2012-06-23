@@ -40,7 +40,7 @@ echo "\"wired_ip\"=\"`/sbin/ifconfig 2>>/dev/null| grep -A 4 en0 | grep inet\ | 
 
 
 #Highest-load program
-program1=`ps axr -o %cpu -o command  | sed -n 2p | grep "Applications" | sed  -e 's/\.app.*//g' -e "s/\/Applications\///g"`
+program1=`ps axr -o %cpu -o command  | sed -n 2p | grep "Applications" | sed  -e 's/\.app.*//g' -e "s/\/Applications\///g" -e "s/\/Users\/rayne//g"`
 echo "\"highprogram_name\"=\"`echo $program1 | awk '{$1="";print $0}' | sed 's/^[ \t]*//'`\"" >> $LOGFILE
 echo "\"highprogram_cpu\"=\"`echo $program1 | awk '{print $1}'`\"" >> $LOGFILE
 
